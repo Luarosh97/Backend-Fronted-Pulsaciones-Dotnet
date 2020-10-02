@@ -1,0 +1,9 @@
+E:\ProyectoFramework\ENTITY\bin\Debug\netstandard2.0\ENTITY.deps.json
+E:\ProyectoFramework\ENTITY\bin\Debug\netstandard2.0\ENTITY.dll
+E:\ProyectoFramework\ENTITY\bin\Debug\netstandard2.0\ENTITY.pdb
+E:\ProyectoFramework\ENTITY\obj\Debug\netstandard2.0\ENTITY.csprojAssemblyReference.cache
+E:\ProyectoFramework\ENTITY\obj\Debug\netstandard2.0\ENTITY.AssemblyInfoInputs.cache
+E:\ProyectoFramework\ENTITY\obj\Debug\netstandard2.0\ENTITY.AssemblyInfo.cs
+E:\ProyectoFramework\ENTITY\obj\Debug\netstandard2.0\ENTITY.csproj.CoreCompileInputs.cache
+E:\ProyectoFramework\ENTITY\obj\Debug\netstandard2.0\ENTITY.dll
+E:\ProyectoFramework\ENTITY\obj\Debug\netstandard2.0\ENTITY.pdb
