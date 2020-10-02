@@ -27,6 +27,7 @@ namespace pulsacionesdotnet.Models
             Nombre = persona.Nombre;
             Edad = persona.Edad;
             Sexo = persona.Sexo;
+
             Pulsacion = persona.Pulsacion;
         }
         public decimal Pulsacion { get; set; }
