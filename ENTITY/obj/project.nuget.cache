@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "awrhT+P4urkmN71JVSXkgBF23WJc55Z1O35DJOr+Vkl/1j2B4pg5XS4oTR+yRECukJiGPR+kVbELaoM3S6mBaA==",
+  "dgSpecHash": "bPguW6FLX8Zb+iEgz4RZblZ/j6/1YNXeU8Sit8tx54ECZqHHy+5LX5UKwski7ggq6jt9v1UDW6vEwwBkMJbduQ==",
   "success": true,
   "projectFilePath": "E:\\ProyectoFramework\\ENTITY\\ENTITY.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Rochety\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Rochety\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Rochety\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

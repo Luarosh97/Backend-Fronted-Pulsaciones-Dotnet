@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using pulsacionesdotnet.Models;
+using DAL;
 
 
 
@@ -18,13 +19,15 @@ namespace pulsacionesdotnet.Controllers
    public class PersonaController: ControllerBase
     {
       private readonly PersonaService _personaService;
-        public IConfiguration Configuration { get; }
-        public PersonaController(IConfiguration configuration)
+        
+
+        public PersonaController(PulsacionesContext context)
         {
-            Configuration = configuration;
-            string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            _personaService = new PersonaService(connectionString);
+            
+            _personaService = new PersonaService(context);
         }
+        
+
         // GET: api/Persona
         [HttpGet]
         public IEnumerable<PersonaViewModel>GetAll()

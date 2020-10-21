@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Hosting;
+using DAL;
+using Microsoft.EntityFrameworkCore;
 
 namespace pulsacionesdotnet
 {
@@ -20,7 +22,11 @@ namespace pulsacionesdotnet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString=Configuration.GetConnectionString ("DefaultConnection");
+            services.AddDbContext<PulsacionesContext>(p=> p.UseSqlServer(connectionString));
+            
             services.AddControllersWithViews();
+
            
             //Agregar OpenApi Swagger
             services.AddSwaggerGen(c =>
