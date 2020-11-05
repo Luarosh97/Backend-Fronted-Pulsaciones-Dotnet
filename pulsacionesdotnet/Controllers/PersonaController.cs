@@ -100,12 +100,9 @@ namespace pulsacionesdotnet.Controllers
         .SendEmailAsync("luarocha97@gemail.com", "Vamos con toda","ay lets go")
         .ConfigureAwait(false);
 
-        return View();
+        return await;
         }
 
-        private IActionResult View()
-        {
-           
-        }
+       
     }
 }

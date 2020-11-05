@@ -10,4 +10,4 @@ namespace pulsacionesdotnet.Services
         public bool EnableSsl { get; set; }
         public string Host { get; set; 
     }
-}
+    }}
