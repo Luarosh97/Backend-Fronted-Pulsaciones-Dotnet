@@ -9,8 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using pulsacionesdotnet.Models;
 using DAL;
-
-
+using pulsacionesdotnet.Interfaces;
 
 namespace pulsacionesdotnet.Controllers
 {
@@ -19,12 +18,14 @@ namespace pulsacionesdotnet.Controllers
    public class PersonaController: ControllerBase
     {
       private readonly PersonaService _personaService;
-        
+         private readonly IEmailSender _emailSender;
 
-        public PersonaController(PulsacionesContext context)
+        public PersonaController(PulsacionesContext context,IEmailSender emailSender)
         {
             
             _personaService = new PersonaService(context);
+            _emailSender = emailSender;
+
         }
         
 
@@ -92,7 +93,19 @@ namespace pulsacionesdotnet.Controllers
             return mensaje;
             
         }
-      
 
+        public async Task<IActionResult> Index()
+    {
+        await _emailSender
+        .SendEmailAsync("luarocha97@gemail.com", "Vamos con toda","ay lets go")
+        .ConfigureAwait(false);
+
+        return View();
+        }
+
+        private IActionResult View()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -4,6 +4,7 @@ import { PersonaRegistroComponent } from './pulsacion/persona-registro/persona-r
 import { PersonaConsultaComponent } from './pulsacion/persona-consulta/persona-consulta.component';
 
 import { Routes, RouterModule } from '@angular/router';
+import { ContactenosComponent } from './formulario/contactenos/contactenos.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,11 @@ const routes: Routes = [
   {
   path: 'personaRegistro',
   component: PersonaRegistroComponent
-  }
+  },
+  {
+    path: 'formContactenos',
+    component: ContactenosComponent
+    }
   ];
   
 @NgModule({

@@ -16,6 +16,8 @@ import { PersonaService } from './services/persona.service';
 import { FiltroPersonaPipe } from './pipe/filtro-persona.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
+import { ClienteConsultaModalComponent } from './pulsacion/cliente-consulta-modal/cliente-consulta-modal.component';
+import { ContactenosComponent } from './formulario/contactenos/contactenos.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
     PersonaRegistroComponent,
     FiltroPersonaPipe,
     AlertModalComponent,
+    ClienteConsultaModalComponent,
+    ContactenosComponent,
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,7 +48,7 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
     NgbModule,
 
     ],
-  entryComponents: [AlertModalComponent],
+  entryComponents: [AlertModalComponent,ClienteConsultaModalComponent,PersonaConsultaComponent],
   providers: [PersonaService],
   bootstrap: [AppComponent]
 })

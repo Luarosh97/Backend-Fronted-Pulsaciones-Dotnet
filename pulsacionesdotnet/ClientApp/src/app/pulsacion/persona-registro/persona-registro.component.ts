@@ -24,6 +24,7 @@ export class PersonaRegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+    
   }
   private buildForm() {
     this.persona = new Persona();

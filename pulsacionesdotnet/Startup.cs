@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using DAL;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace pulsacionesdotnet
 {
    
@@ -28,6 +29,7 @@ namespace pulsacionesdotnet
             services.AddControllersWithViews();
 
            
+
             //Agregar OpenApi Swagger
             services.AddSwaggerGen(c =>
             {
@@ -56,7 +58,10 @@ namespace pulsacionesdotnet
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-        }
+
+            services.AddTransient<IEmailSender, EmailSender>();
+           services.Configure<EmailSenderOptions>(Configuration.GetSection("EmailSenderOptions"));
+           }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
