@@ -94,15 +94,8 @@ namespace pulsacionesdotnet.Controllers
             
         }
 
-        public async Task<IActionResult> Index()
-    {
-        await _emailSender
-        .SendEmailAsync("luarocha97@gemail.com", "Vamos con toda","ay lets go")
-        .ConfigureAwait(false);
+      
 
-        return await;
-        }
-
-       
+    
     }
 }
