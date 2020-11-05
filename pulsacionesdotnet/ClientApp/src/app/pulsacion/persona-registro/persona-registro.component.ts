@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from './../models/persona';
 import { PersonaService } from './../../services/persona.service';
+import { FormGroup, FormBuilder, Validators, AbstractControl, } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
+
+
 
 
 @Component({
@@ -11,17 +16,60 @@ import { PersonaService } from './../../services/persona.service';
 export class PersonaRegistroComponent implements OnInit {
 
   persona: Persona;
+  formGroup: FormGroup;
+  submitted = false;
 
-  constructor(private personaService: PersonaService) { }
+  constructor(private personaService: PersonaService, private formBuilder: FormBuilder,private modalService: NgbModal) { }
 
 
   ngOnInit(): void {
-    this.persona = new Persona;
+    this.buildForm();
+  }
+  private buildForm() {
+    this.persona = new Persona();
+    this.persona.identificacion = '';
+    this.persona.nombre = '';
+    this.persona.sexo = '';
+    this.persona.edad = 0;
+    this.persona.pulsacion = 0;
+
+    this.formGroup = this.formBuilder.group({
+      // tslint:disable-next-line:max-line-length
+      identificacion: [this.persona.identificacion, [Validators.required,Validators.minLength(7),Validators.maxLength(13),Validators.pattern('^[0-9]+$')]],
+      nombre: [this.persona.nombre, [Validators.required,Validators.minLength(4)]],
+      sexo: [this.persona.sexo, [Validators.required, this.validaSexo,Validators.minLength(1)]],
+      edad: [this.persona.edad, [Validators.required, Validators.minLength(1)]]
+    });
+  }
+
+  private validaSexo(control: AbstractControl) {
+    const sexo = control.value;
+    if (sexo.toLocaleUpperCase() !== 'M' && sexo.toLocaleUpperCase() !== 'F') {
+      return {
+        validSexo: true, messageSexo: 'Sexo no Valido' 	};
+      }
+      return null;
+  }
+
+  get control() {
+    return this.formGroup.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.formGroup.invalid) {
+      return;
+    }
+    this.add();
   }
   add() {
+    this.persona = this.formGroup.value;
     this.personaService.post(this.persona).subscribe(p => {
       if (p != null) {
-        alert('Persona creada!');
+        const messageBox = this.modalService.open(AlertModalComponent)
+        messageBox.componentInstance.title = 'Resultado Operación';
+        messageBox.componentInstance.message = 'Persona creada!!! :-)';
         this.persona = p;
       }
     });

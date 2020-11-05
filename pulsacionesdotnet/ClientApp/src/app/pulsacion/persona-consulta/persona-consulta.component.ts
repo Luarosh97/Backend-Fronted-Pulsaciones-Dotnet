@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../models/persona';
 import { PersonaService } from './../../services/persona.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-persona-consulta',
