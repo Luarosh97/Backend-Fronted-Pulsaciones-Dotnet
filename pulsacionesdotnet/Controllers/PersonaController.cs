@@ -105,7 +105,7 @@ namespace pulsacionesdotnet.Controllers
 
         private IActionResult View()
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

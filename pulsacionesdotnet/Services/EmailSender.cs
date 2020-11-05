@@ -3,10 +3,11 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
+using pulsacionesdotnet.Interfaces;
 
 namespace pulsacionesdotnet.Services
 {
-    public class EmailSender
+    public class EmailSender : IEmailSender
     {
         
         private SmtpClient Cliente { get; }
