@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from './../models/persona';
 import { PersonaService } from './../../services/persona.service';
 import { FormGroup, FormBuilder, Validators, AbstractControl, } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
+import { Mensajes } from 'src/app/services/mensajes';
 
 
 
@@ -18,8 +19,11 @@ export class PersonaRegistroComponent implements OnInit {
   persona: Persona;
   formGroup: FormGroup;
   submitted = false;
+ 
+  
 
-  constructor(private personaService: PersonaService, private formBuilder: FormBuilder,private modalService: NgbModal) { }
+  // tslint:disable-next-line:max-line-length
+  constructor( private personaService: PersonaService, private formBuilder: FormBuilder,private mensaje:Mensajes) { }
 
 
   ngOnInit(): void {
@@ -68,9 +72,7 @@ export class PersonaRegistroComponent implements OnInit {
     this.persona = this.formGroup.value;
     this.personaService.post(this.persona).subscribe(p => {
       if (p != null) {
-        const messageBox = this.modalService.open(AlertModalComponent)
-        messageBox.componentInstance.title = 'Resultado Operación';
-        messageBox.componentInstance.message = 'Persona creada!!! :-)';
+        this.mensaje.Mostrar('¡Operación exitosa!');
         this.persona = p;
       }
     });

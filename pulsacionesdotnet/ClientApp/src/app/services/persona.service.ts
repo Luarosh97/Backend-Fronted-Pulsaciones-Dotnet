@@ -16,11 +16,18 @@ export class PersonaService {
     private handleErrorService: HandleHttpErrorService) {
     this.baseUrl = baseUrl;
   }
-  get(): Observable<Persona[]> {
-    return this.http.get<Persona[]>(this.baseUrl + 'api/Persona')
-      .pipe(tap(_ => this.handleErrorService.log('datos enviados')),
-        catchError(this.handleErrorService.handleError<Persona[]>('Consulta Persona', null))
-      );
+  Consultar(formulario: string): Observable<Persona[]> {
+    return this.http.get<Persona[]>(this.baseUrl + 'api/Persona/' + formulario).pipe (
+      tap(_ => this.handleErrorService.log('Datos enviados exitosamente')),
+      catchError(this.handleErrorService.handleError<Persona[]>('Consulta Persona',null))
+    );
+  }
+
+  Totalizar(formulario: string): Observable<number> {
+    return this.http.get<number>(this.baseUrl + 'api/Persona/' + formulario).pipe (
+      tap(_ => this.handleErrorService.log('Datos enviados exitosamente')),
+      catchError(this.handleErrorService.handleError<number>('Totalizar Ayudas',null))
+    );
   }
   post(persona: Persona): Observable<Persona> {
     return this.http.post<Persona>(this.baseUrl + 'api/Persona', persona)
@@ -30,5 +37,4 @@ export class PersonaService {
       );
   }
 
-
-}
+  }

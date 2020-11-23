@@ -48,7 +48,7 @@ import { ContactenosComponent } from './formulario/contactenos/contactenos.compo
     NgbModule,
 
     ],
-  entryComponents: [AlertModalComponent,ClienteConsultaModalComponent,PersonaConsultaComponent],
+  entryComponents: [AlertModalComponent,PersonaRegistroComponent,PersonaConsultaComponent],
   providers: [PersonaService],
   bootstrap: [AppComponent]
 })

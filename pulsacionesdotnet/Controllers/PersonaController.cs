@@ -30,22 +30,27 @@ namespace pulsacionesdotnet.Controllers
         
 
         // GET: api/Persona
-        [HttpGet]
-        public IEnumerable<PersonaViewModel>GetAll()
+       [HttpGet("{formulario}")]
+        public object SeleccionarConsulta(string formulario)
         {
-            var personas = _personaService.ConsultarTodos().Select(p=> new PersonaViewModel(p));
+            if (formulario == "Consulta")
+            {
+                return GetAll();
+            }
+            else
+            {
+                return TotalizarMonto();
+            }
+        }
+
+        private IEnumerable<PersonaViewModel> GetAll()
+        {
+            var personas = _personaService.ConsultarTodos().Select(p => new PersonaViewModel(p));
             return personas;
         }
 
         // GET: api/Persona/5
-        [HttpGet("{identificacion}")]
-        public ActionResult<PersonaViewModel> Get(string identificacion)
-        {
-            var persona = _personaService.BuscarxIdentificacion(identificacion);
-            if (persona == null) return NotFound();
-            var personaViewModel = new PersonaViewModel(persona);
-            return personaViewModel;
-        }
+       
         // POST: api/Persona
         [HttpPost]
         public ActionResult<PersonaViewModel> Post(PersonaInputModel personaInput)
@@ -91,11 +96,12 @@ namespace pulsacionesdotnet.Controllers
             }
             string mensaje=_personaService.Modificar(personanueva);
             return mensaje;
-            
         }
 
-      
+       private decimal TotalizarMonto()
+        {
+            return _personaService.TotalizarPulsaciones();
+        }
 
-    
     }
 }

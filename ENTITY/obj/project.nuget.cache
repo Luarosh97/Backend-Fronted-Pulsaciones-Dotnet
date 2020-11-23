@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bPguW6FLX8Zb+iEgz4RZblZ/j6/1YNXeU8Sit8tx54ECZqHHy+5LX5UKwski7ggq6jt9v1UDW6vEwwBkMJbduQ==",
+  "dgSpecHash": "gAP20DeAZ7d+c2vuiJ/x4iJ45AqnP3/vOYJTpwIka96yvCu5RMxv+l4A/IorlE+wpPydIH2PArm+PzNu2AQpww==",
   "success": true,
   "projectFilePath": "E:\\ProyectoFramework\\ENTITY\\ENTITY.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Rochety\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+    "C:\\Users\\ROCHETY\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

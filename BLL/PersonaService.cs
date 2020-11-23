@@ -124,6 +124,13 @@ namespace BLL
         {
             return _context.Personas.Count(p=> p.Sexo=="M");;
         }
+
+        public  decimal TotalizarPulsaciones()
+        {     
+            
+          return _context.Personas.Sum(p=>p.Pulsacion);
+        
+        }
     }
 
     public class GuardarPersonaResponse 
